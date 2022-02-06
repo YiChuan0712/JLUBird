@@ -1,0 +1,359 @@
+/* QSS样式表 */
+/* 上侧条 */
+QWidget#top_widget
+{
+    background-color: #438AFE;
+
+    border-top: 1px solid grey;
+    border-right:1px solid grey;
+    border-left:1px solid grey;
+    /*border-top-right-radius:10px;*/
+    /*border-top-left-radius:10px;*/
+}
+QPushButton#top_logo
+{
+    max-width: 60px;
+    min-width: 250px;
+    max-height: 60px;
+    min-height: 60px;
+    background-color: #438AFE;
+    border-radius: 10px;
+    color: white;
+    font-size: 50px;
+    font-weight: 400;
+    font-family: 'Microsoft Yahei';
+}
+
+/* 设置左侧最顶端的窗口控制按钮 */
+QPushButton#top_close
+{
+    max-width: 60px;
+    min-width: 60px;
+    max-height: 60px;
+    min-height: 60px;
+    background-color: #438AFE;
+    border-radius: 10px;
+    color: white;
+    font-size: 50px;
+    font-weight: 300;
+}
+
+QPushButton#top_close:hover
+{
+    /*background-color: red;*/
+    color: white;
+    font-size: 55px;
+    font-weight: 400;
+}
+
+QPushButton#top_visit
+{
+    max-width: 60px;
+    min-width: 60px;
+    max-height: 60px;
+    min-height: 60px;
+    background-color: #438AFE;
+    border-radius: 10px;
+    color: white;
+    font-size: 43px;
+    font-weight: 400;
+}
+
+QPushButton#top_visit:hover
+{
+    /*background-color: yellow;*/
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+QPushButton#top_mini
+{
+    max-width: 60px;
+    min-width: 60px;
+    max-height: 60px;
+    min-height: 60px;
+    background-color: #438AFE;
+    border-radius: 10px;
+    color: white;
+    font-size: 55px;
+    font-weight: 400;
+}
+
+QPushButton#top_mini:hover
+{
+    /*background-color: green;*/
+    color: white;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+/* 左侧部件整体 */
+QWidget#left_widget
+{
+    /*background-image: url('./img/background.jpg');*/
+    background-color:white;
+    /*border-top:1px solid white;*/
+    border-bottom:1px solid grey;
+    border-left:1px solid grey;
+    border-right:2px solid #d3d3d3;
+    /*border-top-left-radius:10px;*/
+    /*border-bottom-left-radius:10px;*/
+}
+
+QWidget#left_widget QPushButton
+{
+    border: none;
+}
+
+QWidget#left_widget QPushButton#left_label
+{
+    border: none;
+    border-bottom: 1px solid grey;
+    font-size: 32px;
+    font-weight: 300;
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    font-family: 'Microsoft Yahei';
+    color: grey;
+    text-align: left;
+}
+
+QWidget#left_widget QPushButton#left_button
+{
+    font-size: 40px;
+    font-family: 'Microsoft Yahei';
+    font-weight: 100;
+    text-align: left;
+    color: #363636;
+}
+
+QWidget#left_widget QPushButton#left_button:hover
+{
+    border-left: 8px solid #438AFE;
+    font-family: 'Microsoft Yahei';
+    font-weight: 1000;
+    text-align: left;
+    background-color: #EBEBEB;
+}
+
+QWidget#left_widget QPushButton#left_button:checked
+{
+    border-left: 8px solid #438AFE;
+    font-family: 'Microsoft Yahei';
+    font-weight: 1000;
+    text-align: left;
+    background-color: #EBEBEB;
+}
+
+
+
+
+
+
+
+
+
+
+/* 右侧引导界面 */
+QWidget#right_widget
+{
+    /*background-image: url('./img/background.jpg');*/
+    background-color: white;
+    /*border-top: 1px solid Gray;*/
+    border-right:1px solid Gray;
+    border-bottom:1px solid Gray;
+    /*border-top-right-radius:10px;*/
+    /*border-bottom-right-radius:10px;*/
+}
+
+/* 图书管理系统标题 */
+QWidget#right_widget QLabel#introduction
+{
+    font-family: 'Microsoft Yahei';
+    background-color: #E8E8E8;
+    border-radius: 8px;
+    font-weight: 100;
+    color:#363636;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QWidget#denoise_widget
+{
+    /*background-image: url('./img/background.jpg');*/
+    background-color: white;
+    /*border-top-right-radius:10px;
+    border-bottom-right-radius:10px;  */
+}
+
+QWidget#denoise_widget QLabel#denoise_label
+{
+    margin: 10px;
+    border-radius: 2px;   
+    border:1px solid #F76677;
+    qproperty-alignment: AlignCenter;
+    font-family: 'Microsoft Yahei';
+    /*color: #F76677;*/
+    color: #363636;
+    font-size: 30px;
+}
+
+QWidget#denoise_widget QPushButton#denoise_button
+{
+    /*margin: 10px;*/
+    /*border-radius: 2px;*/
+    border:1px solid #438AFE;
+    qproperty-alignment: AlignCenter;
+    font-family: 'Microsoft Yahei';
+    /*color: #F76677;*/
+    color: #363636;
+    font-size: 30px;
+}
+
+QWidget#denoise_widget QLabel#denoise_already
+{
+    margin: 10px;
+    border-radius: 5px;   
+    /* border:4px solid #F76677; */
+    qproperty-alignment: AlignCenter;
+    font-family: '微软雅黑';
+    color: #F76677;
+    font-size: 20px;
+}
+
+QWidget#denoise_widget QLabel#denoise_title
+{
+    border-radius: 10px;   
+    border:2px solid #F76677;
+    qproperty-alignment: AlignCenter;
+    font-family: '微软雅黑';
+    color: #F76677;
+    font-size: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+QWidget#split_widget
+{
+    background-color: white;
+    /*border-top-right-radius:10px;
+    border-bottom-right-radius:10px;  */
+}
+
+QWidget#split_widget QLabel#split_label
+{
+    margin: 10px;
+    border-radius: 2px;
+    border:1px solid #F76677;
+    qproperty-alignment: AlignCenter;
+    font-family: 'Microsoft Yahei';
+    /*color: #F76677;*/
+    color: #363636;
+    font-size: 30px;
+}
+
+QWidget#split_widget QPushButton#split_button
+{
+    /*margin: 10px;*/
+    /*border-radius: 2px;*/
+    border:1px solid #438AFE;
+    qproperty-alignment: AlignCenter;
+    font-family: 'Microsoft Yahei';
+    /*color: #F76677;*/
+    color: #363636;
+    font-size: 30px;
+}
+
+QWidget#split_widget QLabel#denoise_already
+{
+    margin: 10px;
+    border-radius: 5px;   
+    /* border:4px solid #F76677; */
+    qproperty-alignment: AlignCenter;
+    font-family: '微软雅黑';
+    color: #F76677;
+    font-size: 20px;
+}
+
+QWidget#split_widget QLabel#split_title
+{
+    border-radius: 10px;   
+    border:2px solid #F76677;
+    qproperty-alignment: AlignCenter;
+    font-family: '微软雅黑';
+    color: #F76677;
+    font-size: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QWidget#classify_widget
+{
+    background-color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QWidget#music_widget
+{
+    background-color: white;
+}
