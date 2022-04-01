@@ -41,7 +41,7 @@ import random
 
 def classification(TEST_AUDIO_ROOT, rid, rlocation, rdate, mnum):
 
-    BIRD_LIST = sorted(os.listdir('../input/birdclef-2021/train_short_audio'))
+    BIRD_LIST = sorted(os.listdir('D:\\birdclefFirstPlace/input/birdclef-2021/train_short_audio'))
     BIRD2IDX = {bird:idx for idx, bird in enumerate(BIRD_LIST)}
     BIRD2IDX['nocall'] = -1
     IDX2BIRD = {idx:bird for bird, idx in BIRD2IDX.items()}
@@ -58,7 +58,7 @@ def classification(TEST_AUDIO_ROOT, rid, rlocation, rdate, mnum):
             self.num_prob: int = 6
             self.use_to_birds = True
             self.weights_filepath_dict = {
-                'lgbm': [f"./lgbm_{kfold_index}.pkl" for kfold_index in range(self.num_kfolds)],
+                'lgbm': [f"D:\\birdclefFirstPlace/6_step_three/lgbm_{kfold_index}.pkl" for kfold_index in range(self.num_kfolds)],
             }
 
 
@@ -82,23 +82,23 @@ def classification(TEST_AUDIO_ROOT, rid, rlocation, rdate, mnum):
             self.weights_filepath_dict = training_config.weights_filepath_dict
             # Weights for the models to predict the probability of each bird singing for each frame.
             self.checkpoint_paths = [
-                Path("../input/clefmodel/birdclef_resnest50_fold0_epoch_27_f1_val_05179_20210520120053.pth"),  # id36
-                Path("../input/clefmodel/birdclef_resnest50_fold0_epoch_13_f1_val_03502_20210522050604.pth"),  # id51
-                Path("../input/birdclef_groupby_author_05221040_728258/birdclef_resnest50_fold0_epoch_33_f1_val_03859_20210524151554.pth"),
+                Path("D:\\birdclefFirstPlace/input/clefmodel/birdclef_resnest50_fold0_epoch_27_f1_val_05179_20210520120053.pth"),  # id36
+                Path("D:\\birdclefFirstPlace/input/clefmodel/birdclef_resnest50_fold0_epoch_13_f1_val_03502_20210522050604.pth"),  # id51
+                Path("D:\\birdclefFirstPlace/input/birdclef_groupby_author_05221040_728258/birdclef_resnest50_fold0_epoch_33_f1_val_03859_20210524151554.pth"),
                 # id58
-                Path("../input/birdclef_groupby_author_05221040_728258/birdclef_resnest50_fold1_epoch_34_f1_val_04757_20210524185455.pth"),
+                Path("D:\\birdclefFirstPlace/input/birdclef_groupby_author_05221040_728258/birdclef_resnest50_fold1_epoch_34_f1_val_04757_20210524185455.pth"),
                 # id59
-                Path("../input/birdclef_groupby_author_05221040_728258/birdclef_resnest50_fold2_epoch_34_f1_val_05027_20210524223209.pth"),
+                Path("D:\\birdclefFirstPlace/input/birdclef_groupby_author_05221040_728258/birdclef_resnest50_fold2_epoch_34_f1_val_05027_20210524223209.pth"),
                 # id60
-                Path("../input/birdclef_groupby_author_05221040_728258/birdclef_resnest50_fold3_epoch_20_f1_val_04299_20210525010703.pth"),
+                Path("D:\\birdclefFirstPlace/input/birdclef_groupby_author_05221040_728258/birdclef_resnest50_fold3_epoch_20_f1_val_04299_20210525010703.pth"),
                 # id61
-                Path("../input/birdclef_groupby_author_05221040_728258/birdclef_resnest50_fold4_epoch_34_f1_val_05140_20210525074929.pth"),
+                Path("D:\\birdclefFirstPlace/input/birdclef_groupby_author_05221040_728258/birdclef_resnest50_fold4_epoch_34_f1_val_05140_20210525074929.pth"),
                 # id62
-                Path("../input/clefmodel/resnest50_sr32000_d7_miixup-5.0_2ndlw-0.6_grouped-by-auther/birdclef_resnest50_fold0_epoch_78_f1_val_03658_20210528221629.pth"),
+                Path("D:\\birdclefFirstPlace/input/clefmodel/resnest50_sr32000_d7_miixup-5.0_2ndlw-0.6_grouped-by-auther/birdclef_resnest50_fold0_epoch_78_f1_val_03658_20210528221629.pth"),
                 # id97
-                Path("../input/clefmodel/resnest50_sr32000_d7_miixup-5.0_2ndlw-0.6_grouped-by-auther/birdclef_resnest50_fold0_epoch_84_f1_val_03689_20210528225810.pth"),
+                Path("D:\\birdclefFirstPlace/input/clefmodel/resnest50_sr32000_d7_miixup-5.0_2ndlw-0.6_grouped-by-auther/birdclef_resnest50_fold0_epoch_84_f1_val_03689_20210528225810.pth"),
                 # id97
-                Path("../input/clefmodel/resnest50_sr32000_d7_miixup-5.0_2ndlw-0.6_grouped-by-auther/birdclef_resnest50_fold1_epoch_27_f1_val_03942_20210529062427.pth"),
+                Path("D:\\birdclefFirstPlace/input/clefmodel/resnest50_sr32000_d7_miixup-5.0_2ndlw-0.6_grouped-by-auther/birdclef_resnest50_fold1_epoch_27_f1_val_03942_20210529062427.pth"),
                 # id98
             ]
             self.checkpoint_paths = self.checkpoint_paths[:mn]
@@ -284,7 +284,7 @@ def classification(TEST_AUDIO_ROOT, rid, rlocation, rdate, mnum):
     """"""
 
     def load_metadata():
-        meta_df = pd.read_csv("../input/birdclef-2021/train_metadata.csv")
+        meta_df = pd.read_csv("D:\\birdclefFirstPlace/input/birdclef-2021/train_metadata.csv")
         meta_df["id"] = meta_df.index + 1
         meta_df["year"] = meta_df["date"].apply(lambda _: _.split("-")[0]).astype(int)
         meta_df["month"] = meta_df["date"].apply(lambda _: _.split("-")[1]).astype(int)
@@ -486,7 +486,7 @@ def classification(TEST_AUDIO_ROOT, rid, rlocation, rdate, mnum):
                 fmin=self.fmin,
                 fmax=self.fmax
             )
-            self.npy_save_root = Path("./data")
+            self.npy_save_root = Path("D:\\birdclefFirstPlace/6_step_three/data")
 
             os.makedirs(self.npy_save_root, exist_ok=True)
 
@@ -596,9 +596,9 @@ def classification(TEST_AUDIO_ROOT, rid, rlocation, rdate, mnum):
                     df = pd.read_csv(TARGET_PATH, usecols=["row_id", "birds"])
                     print("b")
                 else:  # when it is submission
-                    if str(audio_paths) == "../input/birdclef-2021/train_soundscapes":
+                    if str(audio_paths) == "D:\\birdclefFirstPlace/input/birdclef-2021/train_soundscapes":
                         print(audio_paths)
-                        df = pd.read_csv(Path("../input/birdclef-2021/train_soundscape_labels.csv"), usecols=["row_id", "birds"])
+                        df = pd.read_csv(Path("D:\\birdclefFirstPlace/input/birdclef-2021/train_soundscape_labels.csv"), usecols=["row_id", "birds"])
                         print("c")
                     else:
                         print(SAMPLE_SUB_PATH)
@@ -1117,7 +1117,7 @@ def classification(TEST_AUDIO_ROOT, rid, rlocation, rdate, mnum):
     ####################################################
 
     TARGET_PATH = None
-    SAMPLE_SUB_PATH = "../input/birdclef-2021/sample_submission.csv"
+    SAMPLE_SUB_PATH = "D:\\birdclefFirstPlace/input/birdclef-2021/sample_submission.csv"
 
     r = get_audio_info(TEST_AUDIO_ROOT)
     dur = r["duration"]
@@ -1183,12 +1183,12 @@ def classification(TEST_AUDIO_ROOT, rid, rlocation, rdate, mnum):
     """"""
     """"""
 
-    submission_df.to_csv("submission.csv", index=False)
+    submission_df.to_csv("D:\\birdclefFirstPlace/6_step_three/submission.csv", index=False)
 
     return 0
 
 
-# classification("../input/classifier_test/test1.ogg", '1', 'COR', '20191004', 1)
+# classification("D:\\birdclefFirstPlace/input/classifier_test/test1.ogg", '1', 'COR', '20191004', 1)
 
 """
 找到文件夹里最新的，取路径
@@ -1226,15 +1226,30 @@ def mymovefile(srcfile,dstfile):
 
 
 src_path = newest
-dst_path = "../input/classifier_test/" + newest.split("\\")[-1]
+dst_path = "D:\\birdclefFirstPlace/input/classifier_test/" + newest.split("\\")[-1]
 print(src_path)
 print(dst_path)
-mymovefile(src_path,dst_path)
+
+# if(src_path.split(".")[-1]=="ogg"):
+mymovefile(src_path, dst_path)
+# elif(src_path.split(".")[-1]=="wav"):
+#     print("is wav")
+#     tdata, tsamplerate = sf.read(src_path)
+#     src_path = src_path.split(".")[0] + ".ogg"
+#     print(src_path)
+#     dst_path = dst_path.split(".")[0] + ".ogg"
+#     sf.write(src_path, tdata, tsamplerate)
+#     mymovefile(src_path, dst_path)
+#     #exit(0)
+
+
+
+
 
 # print(newest)
 classification(dst_path, '1', thelocation, thedate, thenum)
 
-submitdf = pd.read_csv("./submission.csv")
+submitdf = pd.read_csv("D:\\birdclefFirstPlace/6_step_three/submission.csv")
 
 print(list(submitdf["row_id"]))
 fromtime = []
@@ -1320,7 +1335,81 @@ for i, row in df.iterrows():
     conn.close()
     cursor.close()
 
-exit(0)
+
+mymovefile(dst_path, "D:\\apache-tomcat-8.5.66\webapps\ROOT\\playaudio.ogg")
+
+# time.sleep(10)
+
+# from pydub import AudioSegment
+# from pydub.utils import make_chunks
+#
+# AudioSegment.converter = r"D:\\birdclefFirstPlace/ffmpeg.exe"
+# AudioSegment.ffprobe   = r"D:\\birdclefFirstPlace/ffprobe.exe"
+#
+# audio = AudioSegment.from_file("D:\\apache-tomcat-8.5.66\webapps\ROOT\\playaudio.ogg", "ogg")
+#
+# size = 5000  #切割的毫秒数 5s=5000
+#
+# chunks = make_chunks(audio, size)  #将文件切割为5s一块
+#
+# for i, chunk in enumerate(chunks):
+#     chunk_name = "D:\\apache-tomcat-8.5.66\webapps\ROOT\\playaudios\\playaudio-{0}.ogg".format(i)
+#     print(chunk_name)
+#     chunk.export(chunk_name, format="ogg")
+
+def del_files(path_file):
+    ls = os.listdir(path_file)
+    for i in ls:
+        f_path = os.path.join(path_file, i)
+        # 判断是否是一个目录,若是,则递归删除
+        if os.path.isdir(f_path):
+            del_files(f_path)
+        else:
+            os.remove(f_path)
+
+del_files("D:\\apache-tomcat-8.5.66\webapps\ROOT\playaudios\\")
+
+y1, sr1 = lb.load("D:\\apache-tomcat-8.5.66\webapps\ROOT\\playaudio.ogg")
+dur1 = lb.get_duration(y1, sr=sr1)
+print(dur1)
+splitnum = np.ceil(dur1/5).astype(int)
+
+for i in range(splitnum):
+    start = i * 5
+    duration = 5
+    stop = start + duration
+    if i == splitnum - 1:
+        audio_dst = y1[start * sr1:]
+    else:
+        audio_dst = y1[start * sr1:stop * sr1]
+    sf.write("D:\\apache-tomcat-8.5.66\webapps\ROOT\playaudios\playaudio-" + str(i) + ".ogg", audio_dst, sr1)
+
+
+conn = pymysql.connect(host="localhost", port=3306, user="root", passwd="root", db="bird")
+# 获取一个游标对象
+cursor = conn.cursor()
+sql = "UPDATE flag SET isfinished = 'yes' WHERE id = 'idtf';"
+print(sql)
+# 执行数据库插入操作
+cursor.execute(sql)
+# 提交
+conn.commit()
+# 关闭连接
+conn.close()
+cursor.close()
+
+"""
+D:
+
+cd D:/birdclefFirstPlace/venv/Scripts
+
+python D:/birdclefFirstPlace/6_step_three/birdcall_classifier_for_tomcat.py
+"""
+
+"""
+D: && cd D:/birdclefFirstPlace/venv/Scripts && python D:/birdclefFirstPlace/6_step_three/birdcall_classifier_for_tomcat.py
+
+"""
 
 
 
